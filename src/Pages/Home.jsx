@@ -5,7 +5,7 @@ export default function Home() {
     const [posts, setPosts] = useState([]);
 
     async function getPosts() {
-        const res = await fetch('/api/posts');
+        const res = await fetch('http://laravel-api-app.test/api/posts');
         const data = await res.json();
 
         if (res.ok) {

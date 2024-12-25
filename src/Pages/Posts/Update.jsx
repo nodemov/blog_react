@@ -18,7 +18,7 @@ export default function Update() {
     }, []);
 
     async function getPost() {
-        const res = await fetch(`/api/posts/${id}`);
+        const res = await fetch(`http://laravel-api-app.test/api/posts/${id}`);
         const data = await res.json();
 
         if (res.ok) {
@@ -37,10 +37,12 @@ export default function Update() {
     async function handleUpdate(e) {
         e.preventDefault();
 
-        const res = await fetch('/api/posts/' + id, {
+        const res = await fetch('http://laravel-api-app.test/api/posts/' + id, {
             method: "PUT",
             headers: {
                 "Authorization": `Bearer ${token}`,
+                "Content-Type": "application/json",
+                "Accept": "application/json",
             },
             body: JSON.stringify(formData),
         });

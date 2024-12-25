@@ -9,7 +9,7 @@ export default function Layout() {
     async function handleLogout(e) {
         e.preventDefault();
 
-        const res = await fetch('/api/logout', {
+        const res = await fetch('http://laravel-api-app.test/api/logout', {
             method: "POST",
             headers: {
                 Authorization: `Bearer ${token}`,

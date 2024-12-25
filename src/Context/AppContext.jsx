@@ -7,9 +7,11 @@ export default function AppProvider({ children }) {
     const [user, setUser] = useState(null);
 
     async function getUser() {
-        const res = await fetch('/api/user', {
+        const res = await fetch('http://laravel-api-app.test/api/user', {
             headers: {
                 Authorization: `Bearer ${token}`,
+                "Content-Type": "application/json",
+                "Accept": "application/json",
             },
         });
 

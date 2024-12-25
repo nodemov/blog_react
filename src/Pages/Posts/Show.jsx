@@ -10,7 +10,7 @@ export default function Show() {
     const navigate = useNavigate();
 
     async function getPost() {
-        const res = await fetch(`/api/posts/${id}`);
+        const res = await fetch(`http://laravel-api-app.test/api/posts/${id}`);
         const data = await res.json();
 
         if (res.ok) {
@@ -22,10 +22,12 @@ export default function Show() {
         e.preventDefault();
 
         if (user && user.id === post.user_id) {
-            const res = await fetch(`/api/posts/${id}`, {
+            const res = await fetch(`http://laravel-api-app.test/api/posts/${id}`, {
                 method: "DELETE",
                 headers: {
                     Authorization: `Bearer ${token}`,
+                    "Content-Type": "application/json",
+                    "Accept": "application/json",
                 }
             });
 

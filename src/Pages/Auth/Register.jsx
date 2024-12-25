@@ -18,7 +18,11 @@ export default function Register() {
     async function handleRegister(e) {
         e.preventDefault();
 
-        const res = await fetch('/api/register', {
+        const res = await fetch('http://laravel-api-app.test/api/register', {
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json",
+            },
             method: "POST",
             body: JSON.stringify(formData),
         });

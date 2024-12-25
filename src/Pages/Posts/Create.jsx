@@ -16,10 +16,12 @@ export default function Create() {
     async function handleCreate(e) {
         e.preventDefault();
 
-        const res = await fetch('/api/posts', {
+        const res = await fetch('http://laravel-api-app.test/api/posts', {
             method: "POST",
             headers: {
                 "Authorization": `Bearer ${token}`,
+                "Content-Type": "application/json",
+                "Accept": "application/json",
             },
             body: JSON.stringify(formData),
         });

@@ -16,7 +16,11 @@ export default function Login() {
     async function handleLogin(e) {
         e.preventDefault();
 
-        const res = await fetch('/api/login', {
+        const res = await fetch('http://laravel-api-app.test/api/login', {
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json",
+            },
             method: "POST",
             body: JSON.stringify(formData),
         });
